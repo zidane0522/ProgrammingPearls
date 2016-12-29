@@ -34,8 +34,17 @@ namespace ClassLibrary1
                     d[j - 1] = datalist[index];
                     datalist.RemoveAt(index);
                 }
-
+                WriteInRangedData(d);
+                for (int  k = 1; k <= 1000; k++)
+                {
+                    datalist.Add((i + 1) * 1000 + i);
+                }
             }
+        }
+
+        private void WriteInRangedData(int[] data)
+        {
+
         }
     } 
 }

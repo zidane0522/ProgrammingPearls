@@ -17,7 +17,7 @@ namespace MainConsole
             Console.WriteLine(dc.ZiShenXiuGai());//一秒左右,比SuoJianWeiBu方法稍快十分之一
             //Console.WriteLine(dc.WriteArrayToTxt(dc.IniArray));//写入文本
             //Console.WriteLine(dc.ReadArrayFromTxt(@"D:\datasort.txt"));
-            DataSortCls dsc = new DataSortCls();
+            ZDataSortBase dsc = new ZDataSortBase();
             Console.WriteLine(dsc.Sort(dc.RadomArray));
             //foreach (var item in dsc.SortArray)
             //{

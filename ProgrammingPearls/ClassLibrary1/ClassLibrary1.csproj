@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSortFun\DataSortCls.cs" />
+    <Compile Include="DataSortFun\ZDataSortBase.cs" />
+    <Compile Include="DataSortFun\ZGuiBingSortCls.cs" />
     <Compile Include="Interface\IRadomArray.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Array\DataArrayCls.cs" />
+    <Compile Include="Array\ZRadomDataArrayCls.cs" />
     <Compile Include="ZFile.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

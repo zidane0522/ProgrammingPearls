@@ -10,13 +10,13 @@ namespace ClassLibrary1
     /// <summary>
     /// 数组操作类
     /// </summary>
-    public class DataArrayCls
+    public class ZRadomDataArrayCls
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="limit">随机数组范围0-limit</param>
-        public DataArrayCls(int limit)
+        public ZRadomDataArrayCls(int limit)
         {
             this.Limit = limit;
         }

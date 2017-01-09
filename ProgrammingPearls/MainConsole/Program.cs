@@ -15,8 +15,8 @@ namespace MainConsole
             DataArrayCls dc = new DataArrayCls(10000000);
             Console.WriteLine(dc.InitMillionArray());
             Console.WriteLine(dc.ZiShenXiuGai());//一秒左右,比SuoJianWeiBu方法稍快十分之一
-            Console.WriteLine(dc.WriteArrayToTxt(dc.IniArray));//写入文本
-            Console.WriteLine(dc.ReadArrayFromTxt(@"D:\datasort.txt"));
+            //Console.WriteLine(dc.WriteArrayToTxt(dc.IniArray));//写入文本
+            //Console.WriteLine(dc.ReadArrayFromTxt(@"D:\datasort.txt"));
             DataSortCls dsc = new DataSortCls();
             Console.WriteLine(dsc.Sort(dc.RadomArray));
             //foreach (var item in dsc.SortArray)

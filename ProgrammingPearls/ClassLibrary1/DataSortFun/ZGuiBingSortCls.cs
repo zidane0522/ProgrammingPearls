@@ -89,7 +89,7 @@ namespace ClassLibrary1.DataSortFun
         /// </summary>
         /// <param name="unsort_array">无序数组</param>
         /// <returns></returns>
-        public string Sort(int[] unsort_array)
+        public override string Sort(int[] unsort_array)
         {
             DateTime startTime = DateTime.Now;
             SortArray = Sort_Descend(unsort_array, 0, unsort_array.Length - 1);

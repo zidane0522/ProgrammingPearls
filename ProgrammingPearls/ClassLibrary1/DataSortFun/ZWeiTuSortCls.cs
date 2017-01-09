@@ -29,7 +29,7 @@ namespace ClassLibrary1.DataSortFun
             WeiTuSort(unsort_array);
             DateTime endTime = DateTime.Now;
             double runSpan = endTime.Subtract(startTime).TotalMilliseconds;
-            return "归并排序完成耗费" + runSpan.ToString() + "毫秒";
+            return "位图排序完成耗费" + runSpan.ToString() + "毫秒";
         }
 
         public void WeiTuSort(int[] unsort_array)

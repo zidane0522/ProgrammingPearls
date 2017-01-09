@@ -12,17 +12,27 @@ namespace MainConsole
     {
         static void Main(string[] args)
         {
-            DataArrayCls dc = new DataArrayCls(10000000);
+            int intiNum = 20;
+            ZRadomDataArrayCls dc = new ZRadomDataArrayCls(intiNum);
             Console.WriteLine(dc.InitMillionArray());
             Console.WriteLine(dc.ZiShenXiuGai());//一秒左右,比SuoJianWeiBu方法稍快十分之一
-            //Console.WriteLine(dc.WriteArrayToTxt(dc.IniArray));//写入文本
-            //Console.WriteLine(dc.ReadArrayFromTxt(@"D:\datasort.txt"));
-            ZDataSortBase dsc = new ZDataSortBase();
-            Console.WriteLine(dsc.Sort(dc.RadomArray));
-            //foreach (var item in dsc.SortArray)
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
+            foreach (var item in dc.IniArray)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            ZFile zfile = new ZFile();
+            Console.WriteLine(zfile.WriteArrayToTxt(dc.IniArray, @"D:\datasort.txt"));//写入文本
+
+
+            int[] unsortArray = zfile.ReadArrayFromTxt(@"D:\datasort.txt").ToArray();
+            //ZDataSortBase dsc = new ZGuiBingSortCls();
+            //Console.WriteLine(dsc.Sort(unsortArray));
+            ZDataSortBase weit = new ZWeiTuSortCls(intiNum, 0);
+            Console.WriteLine(weit.Sort(unsortArray));
+            foreach (var item in weit.SortArray)
+            {
+                Console.WriteLine(item.ToString());
+            }
             Console.ReadKey();
         }
     }

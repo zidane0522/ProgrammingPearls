@@ -16,10 +16,12 @@ namespace ClassLibrary1
         /// 
         /// </summary>
         /// <param name="limit">随机数组范围0-limit</param>
-        public ZRadomDataArrayCls(int limit)
+        public ZRadomDataArrayCls(int min,int max,int limit)
         {
-            this.Limit = limit;
+            this.IniArrayLimit = max - min;
+            this.RadomArrayLimit = limit < IniArrayLimit ? limit : IniArrayLimit;
         }
+
 
         #region 初始化
         /// <summary>
@@ -27,8 +29,8 @@ namespace ClassLibrary1
         /// </summary>
         public string InitMillionArray()
         {
-            IniArray = new int[Limit];
-            int c = IniArray.Count();
+            IniArray = new int[IniArrayLimit];
+            int c = IniArrayLimit;
             DateTime startTime = DateTime.Now;
             for (int i = 0; i < c; i++)
             {
@@ -36,13 +38,13 @@ namespace ClassLibrary1
             }
             DateTime endTime = DateTime.Now;
             double runSpan = endTime.Subtract(startTime).TotalMilliseconds;
-            return "初始化" + Limit + "长度数组耗费" + runSpan.ToString() + "毫秒";
+            return "初始化" + IniArrayLimit + "长度数组耗费" + runSpan.ToString() + "毫秒";
         }
 
         public string InitMillionList()
         {
             IniList = new List<int>();
-            int c = Limit;
+            int c = IniArrayLimit;
             DateTime startTime = DateTime.Now;
             for (int i = 0; i < c; i++)
             {
@@ -50,7 +52,7 @@ namespace ClassLibrary1
             }
             DateTime endTime = DateTime.Now;
             double runSpan = endTime.Subtract(startTime).TotalMilliseconds;
-            return "初始化" + Limit + "长度列表耗费" + runSpan.ToString() + "毫秒";
+            return "初始化" + IniArrayLimit + "长度列表耗费" + runSpan.ToString() + "毫秒";
         }
 
         /// <summary>
@@ -79,17 +81,18 @@ namespace ClassLibrary1
             }
             else
             {
-                RadomArray = new int[Limit];
+                RadomArray = new int[RadomArrayLimit];
             }
         }
         #endregion
 
         #region 属性与字段
+        public int IniArrayLimit { get;private set; }
 
         /// <summary>
         /// 随机数最大值
         /// </summary>
-        public int Limit { get; private set; }
+        public int RadomArrayLimit { get; private set; }
 
         /// <summary>
         /// 初始数组
@@ -167,11 +170,11 @@ namespace ClassLibrary1
         /// </summary>
         private string LieBiaoShengCheng(List<int> iniList)
         {
-            Random r = new Random(Limit);
-            int c = Limit;
+            Random r = new Random(IniArrayLimit);
+            int c = IniArrayLimit;
             IniRadomList();
             DateTime startTime = DateTime.Now;
-            for (int i = c - 1; i >= 0; i--)
+            for (int i = RadomArrayLimit - 1; i >= 0; i--)
             {
                 int n = r.Next(c);
                 RadomList.Add(iniList[n]);
@@ -180,7 +183,7 @@ namespace ClassLibrary1
             }
             DateTime endTime = DateTime.Now;
             double runSpan = endTime.Subtract(startTime).TotalMilliseconds;
-            return "列表删除法，初始化" + Limit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
+            return "列表删除法，初始化" + RadomArrayLimit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
         }
 
         /// <summary>
@@ -188,11 +191,11 @@ namespace ClassLibrary1
         /// </summary>
         private string YiDongShuZu(int[] iniArray)
         {
-            Random r = new Random(Limit);
-            int c = iniArray.Count();
+            Random r = new Random(IniArrayLimit);
+            int c = IniArrayLimit;
             IniRadomArray();
             DateTime startTime = DateTime.Now;
-            for (int i = 0; i < Limit; i++)
+            for (int i = 0; i < RadomArrayLimit; i++)
             {
                 //随机数
                 int rc = r.Next(c);
@@ -207,7 +210,7 @@ namespace ClassLibrary1
             }
             DateTime endTime = DateTime.Now;
             double runSpan = endTime.Subtract(startTime).TotalMilliseconds;
-            return "数组前移法，初始化" + Limit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
+            return "数组前移法，初始化" + RadomArrayLimit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
         }
 
         /// <summary>
@@ -215,11 +218,11 @@ namespace ClassLibrary1
         /// </summary>
         private string YuanSuGuDing(int[] iniArray)
         {
-            Random r = new Random(Limit);
+            Random r = new Random(RadomArrayLimit);
             IniRadomArray();
-            int dd = Limit;
+            int dd = IniArrayLimit;
             DateTime startTime = DateTime.Now;
-            for (int i = 0; i < Limit; i++)
+            for (int i = 0; i < RadomArrayLimit; i++)
             {
                 int p = r.Next(dd);
                 if (iniArray[p] != -1)
@@ -248,7 +251,7 @@ namespace ClassLibrary1
             }
             DateTime endTime = DateTime.Now;
             double runSpan = endTime.Subtract(startTime).TotalMilliseconds;
-            return "游动取值法，初始化" + Limit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
+            return "游动取值法，初始化" + RadomArrayLimit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
         }
 
         /// <summary>
@@ -256,38 +259,38 @@ namespace ClassLibrary1
         /// </summary>
         private string SuoJianWeiBu(int[] iniArray)
         {
-            Random r = new Random(Limit);
+            Random r = new Random(RadomArrayLimit);
             IniRadomArray();
             DateTime startTime = DateTime.Now;
-            for (int i = 0; i < Limit; i++)
+            for (int i = 0; i < RadomArrayLimit; i++)
             {
-                int p = r.Next(i, Limit);
+                int p = r.Next(i, IniArrayLimit);
                 RadomArray[i] = iniArray[p];
                 iniArray[p] = iniArray[i];
             }
             DateTime endTime = DateTime.Now;
             double runSpan = endTime.Subtract(startTime).TotalMilliseconds;
-            return "数组动态替换法，初始化" + Limit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
+            return "数组动态替换法，初始化" + RadomArrayLimit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
         }
 
         /// <summary>
-        /// 直接修改原数组，自增计数索引处值与随机定位值互换，以生成不重复随机列表。
+        /// 直接修改原数组,仅仅适用于初始数组与随机数组长度相等的情况，自增计数索引处值与随机定位值互换，以生成不重复随机列表。
         /// </summary>
         private string ZiShenXiuGai(int[] iniArray)
         {
-            Random r = new Random(Limit);
+            Random r = new Random(RadomArrayLimit);
             IniRadomArray();
             DateTime startTime = DateTime.Now;
-            for (int i = 0; i < Limit; i++)
+            for (int i = 0; i < RadomArrayLimit; i++)
             {
-                int p = r.Next(i, Limit);
+                int p = r.Next(i, RadomArrayLimit);
                 int q = iniArray[i];
                 iniArray[i] = iniArray[p];
                 iniArray[p] = q;
             }
             DateTime endTime = DateTime.Now;
             double runSpan = endTime.Subtract(startTime).TotalMilliseconds;
-            return "直接修改原数组法，初始化" + Limit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
+            return "直接修改原数组法，初始化" + RadomArrayLimit + "长度随机数组耗费" + runSpan.ToString() + "毫秒";
         }
         #endregion
     } 

@@ -13,7 +13,7 @@ namespace MainConsole
         static void Main(string[] args)
         {
             int intiNum = 20;
-            ZRadomDataArrayCls dc = new ZRadomDataArrayCls(intiNum);
+            ZRadomDataArrayCls dc = new ZRadomDataArrayCls(0,intiNum,intiNum);
             Console.WriteLine(dc.InitMillionArray());
             Console.WriteLine(dc.ZiShenXiuGai());//一秒左右,比SuoJianWeiBu方法稍快十分之一
             foreach (var item in dc.IniArray)

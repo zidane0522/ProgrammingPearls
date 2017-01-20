@@ -40,11 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataSortFun\ZDataSortBase.cs" />
-    <Compile Include="DataSortFun\ZDuoTongDaoSort.cs" />
-    <Compile Include="DataSortFun\ZGuiBingSortCls.cs" />
-    <Compile Include="DataSortFun\ZWeiTuSortCls.cs" />
-    <Compile Include="Interface\IRadomArray.cs" />
+    <Compile Include="chapter1\DataSortFun\ZDataSortBase.cs" />
+    <Compile Include="chapter1\DataSortFun\ZDuoTongDaoSort.cs" />
+    <Compile Include="chapter1\DataSortFun\ZGuiBingSortCls.cs" />
+    <Compile Include="chapter1\DataSortFun\ZWeiTuSortCls.cs" />
+    <Compile Include="chapter1\Interface\IRadomArray.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Array\ZRadomDataArrayCls.cs" />
     <Compile Include="ZFile.cs" />

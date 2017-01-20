@@ -49,6 +49,10 @@
     <Compile Include="Array\ZRadomDataArrayCls.cs" />
     <Compile Include="ZFile.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="chapter2\" />
+    <Folder Include="chapter3\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -46,6 +46,7 @@
     <Compile Include="chapter1\DataSortFun\ZWeiTuSortCls.cs" />
     <Compile Include="chapter1\Interface\IRadomArray.cs" />
     <Compile Include="chapter3\QiDuanZhuangZhi.cs" />
+    <Compile Include="chapter8\OneD_8_1_V.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Array\ZRadomDataArrayCls.cs" />
     <Compile Include="ZFile.cs" />

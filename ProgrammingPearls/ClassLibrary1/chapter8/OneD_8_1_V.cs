@@ -13,8 +13,6 @@ namespace ClassLibrary1.chapter8
     {
         public int[] Vctor { get; set; }
 
-        public int MaxsubVSum { get; set; }
-
         public int LeftLimit { get; set; }
 
         public int RightLimit { get; set; }
@@ -166,17 +164,44 @@ namespace ClassLibrary1.chapter8
             }
             else
             {
-                int sum1 = 0;
-                int sum2 = 0;
-                for (int i = 0; i <= (Vctor.Length / 2)-1; i++)
+                int currentSum = 0;
+                int Max = 0;
+                int currentLeft = 0;
+                int currentRight = 0;
+                for (int i = 0; i <Vctor.Length; i++)
                 {
-                    sum1 += Vctor[i];
-
+                    if (Vctor[i] <= 0)
+                    {
+                        if (currentSum + Vctor[i] < 0)
+                        {
+                            currentSum = 0;
+                            //currentLeft = 0;
+                            //currentRight = 0;
+                        }
+                        else
+                        {
+                            //Max = currentSum;
+                            currentRight = i;
+                            currentSum = currentSum + Vctor[i];
+                        }
+                    }
+                    else
+                    {
+                        if (currentSum==0)
+                        {
+                            currentLeft = i;
+                        }
+                        currentSum += Vctor[i];
+                        currentRight = i;
+                        if (currentSum>Max)
+                        {
+                            Max = currentSum;
+                            LeftLimit = currentLeft;
+                            RightLimit = currentRight;
+                        }
+                    }
                 }
-                for (int i = (Vctor.Length / 2); i < Vctor.Length; i++)
-                {
-
-                }
+                res = Max;
             }
             return res;
         }

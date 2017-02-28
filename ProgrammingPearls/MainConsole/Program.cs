@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClassLibrary1;
 using ClassLibrary1.DataSortFun;
+using ClassLibrary1.chapter8;
 
 namespace MainConsole
 {
@@ -33,7 +34,10 @@ namespace MainConsole
             //{
             //    Console.WriteLine(item.ToString());
             //}
-
+            OneD_8_1_V v = new OneD_8_1_V();
+            v.Vctor = new int[] { -8,7,5,-9,5,6,0,1,-46,5};
+            int max= v.ScanMethod();
+            Console.WriteLine(v.LeftLimit.ToString()+"   "+v.RightLimit.ToString()+"  "+max.ToString());
             Console.ReadKey();
         }
     }
